@@ -8,6 +8,16 @@
 	<constant name="struts.enable.DynamicMethodInvocation"	value="false" />
 	<constant name="struts.devMode" value="true" />
 	<package name="default" namespace="/" extends="struts-default">
+	<interceptors>
+	<interceptor name="myInter" class="cn.edu.ujn.action.MyInterceptor"></interceptor>
+	</interceptors>
+	<action name="addXs" class="cn.edu.ujn.action.XsbAction" method="addXs">
+	<result name="ok">/ok.jsp</result>
+	<result name="error">/addXs.jsp</result>
+	<result name="input">/addXs.jsp</result>
+	<interceptor-ref name="defaultStack"></interceptor-ref>
+	<interceptor-ref name="myInter"></interceptor-ref>
+	</action>
 		
 	</package>
 </struts>
